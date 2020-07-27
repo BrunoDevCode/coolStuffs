@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='utf-8' />
+	<title>Hover Button</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.area {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100vh;
+		}
+
+		.button {
+			width: 140px;
+			height: 45px;
+			font-size: 23px;
+			cursor: pointer;
+			background: transparent;
+			color: #000;
+			outline: none;
+			border: none;
+			font-family: sans-serif;
+			font-weight: bold;
+			position: relative;
+			transition: all .5s;
+		}
+
+		.button:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 5px;
+			height: 100%;
+			background-color: #131313;
+			z-index: -1;
+			transition: all .5s;
+		}
+
+		.button:hover::before {
+			width: 100%;
+		}
+
+		.button:hover {
+			color: #FFF;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="area">
+		<button class="button">ENTRAR</button>
+	</div>
+</body>
+
+</html>
