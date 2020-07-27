@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sticky Bubble Nav</title>
+    <style>
+        body {
+            background-color: #232B32;
+        }
+
+        ul {
+            border-radius: 1rem;
+            display: flex;
+            list-style: none;
+            margin: 0;
+        }
+
+        ul a {
+            border-radius: 1rem;
+            color: #9BFF85;
+            display: block;
+            padding: .5rem 1rem;
+            text-decoration: none;
+            transition: all .2s ease;
+        }
+
+        .bubble {
+            border-radius: 16px;
+            border: solid 2px #94FFFF;
+            box-sizing: border-box;
+            height: 34px;
+            position: absolute;
+            transition: width .2s ease, left .2s ease;
+            width: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="bubble" style="width: 73.3333px; left: 375.25px"></div>
+        <ul>
+            <li>
+                <a href="#">Home</a>
+            </li>
+
+            <li>
+                <a href="#">About Us</a>
+            </li>
+
+            <li>
+                <a href="#">Products</a>
+            </li>
+
+            <li>
+                <a href="#">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        const list = document.querySelector('ul')
+        const bubble = document.querySelector('.bubble')
+
+        // When the function have one property we can do without brackets.
+        list.addEventListener('click', event => {
+            const target = event.target
+
+            if (target.tagName === 'A') {
+                const { width, left } = target.getBoundingClientRect()
+                bubble.style.cssText = `width: ${width}px; left: ${left}px`
+            }
+        })
+    </script>
+</body>
+
+</html>
